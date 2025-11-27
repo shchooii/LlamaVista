@@ -12,8 +12,6 @@
 - 자동 시각화 파일 생성 및 관리
 - Thread 기반 대화 맥락 유지
 
----
-
 ## 🎥 Demo
 
 ![demo (online-video-cutter com)](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
