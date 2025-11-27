@@ -1,97 +1,224 @@
 # Vista
 
-**데이터 분석 자동화 서비스!**
+### 2024 캡스톤 디자인 – 백엔드 시스템
 
-<img width="800" alt="스크린샷 2025-01-03 오전 12 50 42" src="https://github.com/user-attachments/assets/cc8d23a2-07aa-46d6-92fb-7f520e2866b5" />
+> **코드 없이 데이터 분석 가능한 웹 서비스**
+>
+> Vista BE는 사용자가 업로드한 데이터를 기반으로 대규모 언어 모델(LLM)이 자동으로 분석을 수행하고, 대화를 통해 분석을 심화할 수 있는 기능을 제공하는 백엔드 시스템입니다.
 
+✅ FastAPI 기반 REST API
+✅ MongoDB 기반 데이터 관리
+✅ 비동기 Streaming 처리로 실시간 응답 제공
+✅ 자동 시각화 파일 생성 및 관리
+✅ Thread 기반 대화 맥락 유지
 
-## 📖 Description
+---
 
-VISTA는 대규모 언어 모델(LLM)을 기반으로 한 데이터 분석 자동화 서비스입니다.
+## 🎥 Demo
 
-사용자가 제출한 파일을 인공지능이 분석하고 대화를 통해 인공지능과 상호작용하며 데이터 분석을 고도화해 나갈 수 있습니다.
+![demo (online-video-cutter com)](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
 
-노코드 형식의 프롬프트를 통해 코드작성 없이도 전문적인 데이터 분석이 가능합니다!
+---
 
-## ⭐ Main Feature
-### 데이터 분석 기능
-- csv, json, txt 파일의 데이터 분석 지원
-- 분석 방향 제시
-- 대화 전송시, 추가적인 자료 제출 가능
-- 데이터 시각화 이미지 제공(그래프, 산점도 등)
-- 스트리밍을 통한 실시간 응답 지원
+# ✨ Backend 소개
 
-### 회원가입 및 로그인 
-- 회원가입
-- 로그인
-- google 로그인 (**DNS 사용 기간이 종료되어 현재 이용 불가능합니다**)
+Vista BE는 다음 기능을 중심으로 설계되었습니다.
 
-### 기타 기능
-- 채팅 기록 저장
-- 반응형 지원
-- 분석 샘플 파일 제공
-- 제출 파일 다운로드
-- 로그아웃
+* 사용자 업로드 파일 기반 데이터 분석 자동화
+* 분석 과정에서 생성된 메시지/시각화/파일 저장
+* **LLM 분석 결과를 비동기 Streaming 으로 실시간 제공**
+* Thread 기반 대화 맥락 유지 및 재사용
+* 사용자별 분석 기록 관리
 
-## 💻 Getting Started
+---
 
-배포된 링크 🔗 로 접속!
+## 🗄 데이터베이스 구조
 
-### 회원가입 후 로그인 진행
-- 구글 로그인은 DNS 서비스가 만료되어 현재 이용 불가능합니다
-- 회원가입 시 중복체크 후 회원가입이 완료됩니다
-<img width="800" alt="로그인" src="https://github.com/user-attachments/assets/c7668091-c8cf-4f8d-977d-7f10ceafca27">
+MongoDB 기반 스키마는 다음 목적을 갖습니다.
 
-### 분석할 파일 제출
-- 분석을 원하시는 파일을 제출하여 채팅방을 생성하는 곳입니다
-- 분석 파일은 json, csv, txt 파일만 가능합니다
-- london_house, shopping_trends, iris 와 관련된 샘플 데이터로 분석을 진행해 볼 수 있습니다
-<img width="800" alt="스크린샷 2025-01-03 오전 12 53 07" src="https://github.com/user-attachments/assets/a846a69f-8cee-418e-a808-1460db7829d7" />
+* 사용자별 분석 히스토리 보관
+* 대화 컨텍스트 유지
+* 자동 생성 파일 관리
 
+### 주요 구조
 
-### 데이터 분석 진행
-- 대화 입력창을 통해 인공지능과 대화하며 다양한 형식으로 데이터 분석을 진행할 수 있습니다
-- 데이터 분석을 통해 알게된 인사이트로 추가적인 파일을 채팅방에 제출하며 분석을 고도화해 나갈 수 있습니다
-- 시각화 된 자료가 필요한 경우 생성할 수 있습니다
-  
-<img width="1510" alt="스크린샷 2025-01-03 오전 12 56 05" src="https://github.com/user-attachments/assets/922db4f4-0532-47b6-ad97-76b695236b08" />
+```
+users
+ ├─ name
+ ├─ email
+ ├─ hashed_password
+ └─ threads[]
+      ├─ thread_id
+      ├─ name
+      ├─ file_name[]
+      └─ messages[]
+           ├─ role (user/assistant)
+           ├─ text
+           └─ file_id[]
+```
 
+### 특징
 
-## 🔧 Stack
+✅ Thread 단위로 분석 맥락 유지
+✅ 메시지별 파일 연결 가능
+✅ 분석 단계별 기록 확인 가능
+✅ 해시 기반 비밀번호 저장
 
-### FE 
-- **Language**: TypeScript
-- **Library & Framework** : React, React-rocoil, React-Query, styled-components
+---
 
-### BE 
-- **Language**: Python
-- **Library & Framework** : Fastapi, Pymongo
-- **Deploy**: AWS EC2
+# 🚀 핵심 기술 – 비동기 Streaming 처리
 
-### ML 
-- **Hardware & OS env**: DGX-Station(A100*8), Ubuntu 20.04, CUDA 11.8
-- **Language**: Python
-- **Library & Framework** : torch, transformers, accelerate, sentencepiece, langchain
+Vista BE의 가장 큰 차별점은:
 
+> **LLM 분석 결과를 WebSocket 없이 HTTP Streaming 형태로 실시간 제공한다는 점**
 
-## 👨‍💻 Role & Contribution
+사용자는 전체 응답이 생성될 때까지 기다릴 필요 없이,
+
+```
+"데이터 컬럼을 확인 중입니다..."
+"시각화 이미지를 생성하고 있습니다..."
+"분석 결과 요약 중..."
+```
+
+과 같이 생성되는 내용을 즉시 전달받습니다.
+
+---
+
+### 구현 방식
+
+FastAPI `StreamingResponse` + `async generator`
+
+```python
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    async def event_stream():
+        async for chunk in llm.generate(request):
+            yield chunk
+            store_in_db(chunk)
+
+    return StreamingResponse(event_stream(), media_type="text/event-stream")
+```
+
+### 장점
+
+✅ 응답 체감 속도 향상
+✅ 실시간 대화형 분석 경험 제공
+✅ 시각화 생성 상태 전달 가능
+✅ FE에서 스트림 기반 출력 렌더링 가능
+
+### 처리 흐름
+
+```
+사용자 요청
+    ↓
+FastAPI /chat
+    ↓
+event_handler (async generator)
+    ↓
+LLM 호출 및 분석
+    ↓
+텍스트/상태 Streaming 전송
+    ↓
+DB 저장
+```
+
+---
+
+# 🔌 FastAPI Endpoints
+
+### 인증
+
+```
+/user/register
+/user/login
+```
+
+### 데이터 분석 & 채팅
+
+```
+/create
+/create_example
+/chat              # 비동기 스트리밍 핵심
+/chat_list
+/store
+```
+
+### 파일 관리
+
+```
+/user_file
+/file_list
+```
+
+---
+
+# 🧱 소스코드 구조
+
+```
+database/
+ └─ users.py          # DB 스키마 및 접근 로직
+
+service/
+ ├─ fastapi_auth.py   # 일반 로그인 처리
+ └─ google_auth.py    # 구글 로그인 (현재 미활성)
+
+vista/
+ ├─ chat.py           # 채팅 및 분석 요청 처리
+ ├─ event_handler.py  # Streaming 처리 핵심
+ └─ result.py         # LLM 생성 결과 저장
+
+static/
+ └─ images / uploads  # 시각화 이미지 및 사용자 파일
+```
+
+---
+
+# ⚙️ 실행 방법
+
+```bash
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+---
+
+# 👨‍💻 Role & Contribution
 
 **Frontend** (👨🏻‍💻 [seoungJun](https://github.com/seo-seoungjun))
 
-- 사용자 페이지 디자인(Figma) 및 프론트개발(React.js)
-- 데이터베이스 스키마 설계
-- API 설계
+* 사용자 페이지 디자인(Figma) 및 프론트개발(React.js)
+* 데이터베이스 스키마 설계
+* API 설계
 
-**BackEnd** (👨🏻‍💻 [cshoon](https://github.com/cshooon))
+**BackEnd** (👨🏻‍💻 [shchooii](https://github.com/shchooii))
 
-- 데이터베이스 스키마 설계
-- API 설계
-- REST API 개발
-- 서버 배포 및 관리
+* 데이터베이스 스키마 설계
+* API 설계
+* REST API 개발
+* 서버 배포 및 관리
 
 **ML** (👨🏻‍💻 [sabin](https://github.com/sabin5105))
 
-- 인공지능 설계 및 개발
-- MLOps
-- RESTApi 개발
+* 인공지능 설계 및 개발
+* MLOps
+* RESTApi 개발
 
+---
+
+# ✅ BE 주요 기여 요약
+
+* FastAPI 기반 백엔드 전체 개발
+* MongoDB를 활용한 유저/스레드/메시지 관리
+* **비동기 Streaming 기반 실시간 분석 응답 구현**
+* LLM 생성 결과(텍스트/이미지) 저장 및 제공 시스템 구축
+* AWS EC2 배포 및 운영
+
+---
+
+# 🔗 관련 저장소
+
+[BE](https://github.com/LlamaVista/LlamaVista/tree/BE)
+[FE](https://github.com/LlamaVista/LlamaVista/tree/FE)
+[ML](https://github.com/LlamaVista/LlamaVista/tree/ML)
+
+---
