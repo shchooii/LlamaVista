@@ -18,19 +18,13 @@
 
 ![demo (online-video-cutter com)](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
 
----
-
-# ✨ Backend 소개
-
-Vista BE는 다음 기능을 중심으로 설계되었습니다.
+Vista는 다음 기능을 중심으로 설계되었습니다.
 
 * 사용자 업로드 파일 기반 데이터 분석 자동화
 * 분석 과정에서 생성된 메시지/시각화/파일 저장
 * **LLM 분석 결과를 비동기 Streaming 으로 실시간 제공**
 * Thread 기반 대화 맥락 유지 및 재사용
 * 사용자별 분석 기록 관리
-
----
 
 ## 🗄 데이터베이스 구조
 
@@ -63,8 +57,6 @@ users
 ✅ 메시지별 파일 연결 가능 <br>
 ✅ 분석 단계별 기록 확인 가능 <br>
 
----
-
 ## 비동기 Streaming 처리
 
 Vista BE의 가장 큰 차별점은:
@@ -80,8 +72,6 @@ Vista BE의 가장 큰 차별점은:
 ```
 
 과 같이 생성되는 내용을 즉시 전달받습니다.
-
----
 
 ### 구현 방식
 
@@ -121,8 +111,6 @@ LLM 호출 및 분석
 DB 저장
 ```
 
----
-
 ## 🔌 FastAPI Endpoints
 
 ### 인증
@@ -149,8 +137,6 @@ DB 저장
 /file_list
 ```
 
----
-
 ## 🧱 소스코드 구조
 
 ```
@@ -170,16 +156,12 @@ static/
  └─ images / uploads  # 시각화 이미지 및 사용자 파일
 ```
 
----
-
 ## ⚙️ 실행 방법
 
 ```bash
 pip install -r requirements.txt
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
-
----
 
 ## 👨‍💻 Role & Contribution
 
@@ -202,8 +184,6 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 * MLOps
 * RESTApi 개발
 
----
-
 ## ✅ BE 주요 기여 요약
 
 * FastAPI 기반 백엔드 전체 개발
@@ -212,12 +192,8 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 * LLM 생성 결과(텍스트/이미지) 저장 및 제공 시스템 구축
 * AWS EC2 배포 및 운영
 
----
-
 ## 🔗 관련 저장소
 
 [BE](https://github.com/LlamaVista/LlamaVista/tree/BE)
 [FE](https://github.com/LlamaVista/LlamaVista/tree/FE)
 [ML](https://github.com/LlamaVista/LlamaVista/tree/ML)
-
----
