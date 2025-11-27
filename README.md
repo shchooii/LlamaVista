@@ -66,7 +66,7 @@ users
 
 ---
 
-# 🚀 핵심 기술 – 비동기 Streaming 처리
+## 비동기 Streaming 처리
 
 Vista BE의 가장 큰 차별점은:
 
@@ -124,7 +124,7 @@ DB 저장
 
 ---
 
-# 🔌 FastAPI Endpoints
+## 🔌 FastAPI Endpoints
 
 ### 인증
 
@@ -152,7 +152,7 @@ DB 저장
 
 ---
 
-# 🧱 소스코드 구조
+## 🧱 소스코드 구조
 
 ```
 database/
@@ -173,7 +173,7 @@ static/
 
 ---
 
-# ⚙️ 실행 방법
+## ⚙️ 실행 방법
 
 ```bash
 pip install -r requirements.txt
@@ -182,7 +182,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-# 👨‍💻 Role & Contribution
+## 👨‍💻 Role & Contribution
 
 **Frontend** (👨🏻‍💻 [seoungJun](https://github.com/seo-seoungjun))
 
@@ -205,7 +205,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-# ✅ BE 주요 기여 요약
+## ✅ BE 주요 기여 요약
 
 * FastAPI 기반 백엔드 전체 개발
 * MongoDB를 활용한 유저/스레드/메시지 관리
@@ -215,7 +215,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-# 🔗 관련 저장소
+## 🔗 관련 저장소
 
 [BE](https://github.com/LlamaVista/LlamaVista/tree/BE)
 [FE](https://github.com/LlamaVista/LlamaVista/tree/FE)
