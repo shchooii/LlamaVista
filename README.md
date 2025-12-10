@@ -14,7 +14,7 @@
 
 ## 🎥 Demo
 
-![demo (online-video-cutter com)](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
+<img width="1510" height="820" alt="399744512-cc8d23a2-07aa-46d6-92fb-7f520e2866b5" src="https://github.com/user-attachments/assets/a23cbceb-1aa2-45a5-93d4-b6b8adb73955" />
 
 Vista는 다음 기능을 중심으로 설계되었습니다.
 
@@ -195,3 +195,11 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 [BE](https://github.com/LlamaVista/LlamaVista/tree/BE)
 [FE](https://github.com/LlamaVista/LlamaVista/tree/FE)
 [ML](https://github.com/LlamaVista/LlamaVista/tree/ML)
+
+<details>
+  <summary>🎬 데모 영상 보기 (click to open)</summary>
+
+  ![demo (online-video-cutter com)](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
+
+</details>
+
