@@ -168,9 +168,7 @@ uvicorn main:app --reload
 
 ## 저장소
 
-BE: [https://github.com/LlamaVista/LlamaVista/tree/BE](https://github.com/LlamaVista/LlamaVista/tree/BE)
-FE: [https://github.com/LlamaVista/LlamaVista/tree/FE](https://github.com/LlamaVista/LlamaVista/tree/FE)
-ML: [https://github.com/LlamaVista/LlamaVista/tree/ML](https://github.com/LlamaVista/LlamaVista/tree/ML)
+[BE](https://github.com/LlamaVista/LlamaVista/tree/BE), [FE](https://github.com/LlamaVista/LlamaVista/tree/FE), [ML](https://github.com/LlamaVista/LlamaVista/tree/ML)
 
 
 
