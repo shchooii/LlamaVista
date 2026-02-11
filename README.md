@@ -198,4 +198,3 @@ ML: [https://github.com/LlamaVista/LlamaVista/tree/ML](https://github.com/LlamaV
 ![demo](https://github.com/user-attachments/assets/cfcf3e45-5ed6-4aea-99a9-7f6781637609)
 
 </details>
-```
